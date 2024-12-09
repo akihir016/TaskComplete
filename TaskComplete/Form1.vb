@@ -133,4 +133,12 @@ Public Class Form1
     Private Sub lblRecentDateTime_Click(sender As Object, e As EventArgs) Handles lblRecentDateTime.Click
 
     End Sub
+
+    Private Sub lblHide_Click(sender As Object, e As EventArgs) Handles lblHide.Click
+        Me.Hide()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form3.Show()
+    End Sub
 End Class

@@ -27,6 +27,7 @@ Partial Class Form2
         txtActivity = New TextBox()
         btnSave = New Button()
         btnExport = New Button()
+        Button1 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -34,14 +35,15 @@ Partial Class Form2
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(4, 12)
+        Label1.Location = New Point(12, 22)
         Label1.Name = "Label1"
-        Label1.Size = New Size(174, 19)
+        Label1.Size = New Size(86, 19)
         Label1.TabIndex = 1
-        Label1.Text = "What did you do today?"
+        Label1.Text = "Log Details"
         ' 
         ' txtActivity
         ' 
+        txtActivity.BorderStyle = BorderStyle.FixedSingle
         txtActivity.Location = New Point(33, 47)
         txtActivity.Name = "txtActivity"
         txtActivity.Size = New Size(346, 22)
@@ -62,8 +64,17 @@ Partial Class Form2
         btnExport.Name = "btnExport"
         btnExport.Size = New Size(75, 23)
         btnExport.TabIndex = 4
-        btnExport.Text = "Export"
+        btnExport.Text = "Report"
         btnExport.UseVisualStyleBackColor = True
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(93, 105)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 6
+        Button1.Text = "Exit"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' Form2
         ' 
@@ -71,7 +82,10 @@ Partial Class Form2
         AllowDrop = True
         AutoScaleMode = AutoScaleMode.None
         BackColor = SystemColors.Control
+        CancelButton = Button1
         ClientSize = New Size(400, 150)
+        ControlBox = False
+        Controls.Add(Button1)
         Controls.Add(btnExport)
         Controls.Add(btnSave)
         Controls.Add(txtActivity)
@@ -93,4 +107,5 @@ Partial Class Form2
     Friend WithEvents txtActivity As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents btnExport As Button
+    Friend WithEvents Button1 As Button
 End Class

@@ -21,13 +21,13 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-            ' Save the current position of Form2
-            My.Settings.Form2LocationX = Me.Location.X
-            My.Settings.Form2LocationY = Me.Location.Y
-            My.Settings.Save() ' Save the settings
+        ' Save the current position of Form2
+        My.Settings.Form2LocationX = Me.Location.X
+        My.Settings.Form2LocationY = Me.Location.Y
+        My.Settings.Save() ' Save the settings
     End Sub
-        Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim activity As String = txtActivity.Text.Trim()
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim activity = txtActivity.Text.Trim
         If Not String.IsNullOrEmpty(activity) Then
             LogEntry(activity)
             txtActivity.Clear()
@@ -48,7 +48,13 @@ Public Class Form2
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
-        ExportLog()
+        'ExportLog()
+        Form3.Show()
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
     Private Sub ExportLog()
         Dim logFilePath As String = Path.Combine(logFolderPath, "daily_log.txt")
@@ -69,5 +75,4 @@ Public Class Form2
             MessageBox.Show("No log entries found to export.")
         End If
     End Sub
-
 End Class

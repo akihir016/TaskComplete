@@ -37,6 +37,7 @@ Partial Class Form1
         Label4 = New Label()
         Button1 = New Button()
         Button2 = New Button()
+        lblHide = New Label()
         ContextMenu.SuspendLayout()
         SuspendLayout()
         ' 
@@ -152,6 +153,16 @@ Partial Class Form1
         Button2.Text = "Report"
         Button2.UseVisualStyleBackColor = True
         ' 
+        ' lblHide
+        ' 
+        lblHide.AutoSize = True
+        lblHide.ForeColor = SystemColors.ButtonFace
+        lblHide.Location = New Point(199, -4)
+        lblHide.Name = "lblHide"
+        lblHide.Size = New Size(13, 17)
+        lblHide.TabIndex = 9
+        lblHide.Text = "-"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 17F)
@@ -160,6 +171,7 @@ Partial Class Form1
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(217, 265)
+        Controls.Add(lblHide)
         Controls.Add(lblRecentDateTime)
         Controls.Add(Button2)
         Controls.Add(Button1)
@@ -191,5 +203,6 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents lblHide As Label
 
 End Class
