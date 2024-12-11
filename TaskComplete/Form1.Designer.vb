@@ -32,17 +32,20 @@ Partial Class Form1
         timer = New Timer(components)
         notifyIcon = New NotifyIcon(components)
         lblDate = New Label()
-        lblRecentLog = New Label()
         lblRecentDateTime = New Label()
         Label4 = New Label()
         Button1 = New Button()
         Button2 = New Button()
         lblHide = New Label()
+        Label1 = New Label()
+        FlowLayoutPanel1 = New FlowLayoutPanel()
+        lblRecentLog = New Label()
         ContextMenu.SuspendLayout()
         SuspendLayout()
         ' 
         ' ContextMenu
         ' 
+        ContextMenu.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
         ContextMenu.Items.AddRange(New ToolStripItem() {OpenToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
         ContextMenu.Name = "OpenToolStripMenuItem"
         ContextMenu.Size = New Size(117, 70)
@@ -69,11 +72,11 @@ Partial Class Form1
         ' 
         lblClock.AutoSize = True
         lblClock.BackColor = Color.Transparent
-        lblClock.Font = New Font("Modern No. 20", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblClock.ForeColor = Color.White
-        lblClock.Location = New Point(67, 7)
+        lblClock.Font = New Font("Modern No. 20", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblClock.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        lblClock.Location = New Point(42, 23)
         lblClock.Name = "lblClock"
-        lblClock.Size = New Size(55, 24)
+        lblClock.Size = New Size(61, 25)
         lblClock.TabIndex = 1
         lblClock.Text = "12:00"
         ' 
@@ -90,32 +93,21 @@ Partial Class Form1
         lblDate.AutoSize = True
         lblDate.BackColor = Color.Transparent
         lblDate.Font = New Font("Modern No. 20", 11.249999F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblDate.ForeColor = Color.White
-        lblDate.Location = New Point(14, 58)
+        lblDate.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        lblDate.Location = New Point(4, 56)
         lblDate.Name = "lblDate"
         lblDate.Size = New Size(70, 17)
         lblDate.TabIndex = 3
         lblDate.Text = "12/05/2024"
-        ' 
-        ' lblRecentLog
-        ' 
-        lblRecentLog.BackColor = Color.Transparent
-        lblRecentLog.Font = New Font("MS PGothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblRecentLog.ForeColor = Color.White
-        lblRecentLog.Location = New Point(12, 129)
-        lblRecentLog.MaximumSize = New Size(200, 0)
-        lblRecentLog.Name = "lblRecentLog"
-        lblRecentLog.Size = New Size(193, 85)
-        lblRecentLog.TabIndex = 4
-        lblRecentLog.Text = "Log note"
+        lblDate.TextAlign = ContentAlignment.TopCenter
         ' 
         ' lblRecentDateTime
         ' 
         lblRecentDateTime.AutoSize = True
         lblRecentDateTime.BackColor = Color.Transparent
-        lblRecentDateTime.Font = New Font("MS Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblRecentDateTime.ForeColor = Color.White
-        lblRecentDateTime.Location = New Point(2, 109)
+        lblRecentDateTime.Font = New Font("SimSun", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblRecentDateTime.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        lblRecentDateTime.Location = New Point(2, 99)
         lblRecentDateTime.Name = "lblRecentDateTime"
         lblRecentDateTime.Size = New Size(167, 15)
         lblRecentDateTime.TabIndex = 5
@@ -126,8 +118,8 @@ Partial Class Form1
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Modern No. 20", 11.249999F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label4.ForeColor = Color.White
-        Label4.Location = New Point(67, 88)
+        Label4.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        Label4.Location = New Point(2, 83)
         Label4.Name = "Label4"
         Label4.Size = New Size(81, 17)
         Label4.TabIndex = 6
@@ -135,13 +127,16 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
+        Button1.BackColor = Color.Transparent
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
         Button1.Font = New Font("Bodoni MT", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = SystemColors.ControlText
         Button1.Location = New Point(7, 225)
         Button1.Name = "Button1"
         Button1.Size = New Size(68, 23)
         Button1.TabIndex = 7
         Button1.Text = "New Log"
-        Button1.UseVisualStyleBackColor = True
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Button2
         ' 
@@ -156,12 +151,47 @@ Partial Class Form1
         ' lblHide
         ' 
         lblHide.AutoSize = True
-        lblHide.ForeColor = SystemColors.ButtonFace
-        lblHide.Location = New Point(199, -4)
+        lblHide.BackColor = Color.Transparent
+        lblHide.Font = New Font("Bauhaus 93", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblHide.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        lblHide.Location = New Point(188, 8)
         lblHide.Name = "lblHide"
-        lblHide.Size = New Size(13, 17)
+        lblHide.Size = New Size(15, 21)
         lblHide.TabIndex = 9
         lblHide.Text = "-"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Bauhaus 93", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        Label1.Location = New Point(202, 9)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(16, 16)
+        Label1.TabIndex = 10
+        Label1.Text = "x"
+        ' 
+        ' FlowLayoutPanel1
+        ' 
+        FlowLayoutPanel1.BackColor = Color.Transparent
+        FlowLayoutPanel1.Font = New Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        FlowLayoutPanel1.Location = New Point(3, 128)
+        FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        FlowLayoutPanel1.Size = New Size(204, 86)
+        FlowLayoutPanel1.TabIndex = 11
+        ' 
+        ' lblRecentLog
+        ' 
+        lblRecentLog.BackColor = Color.Transparent
+        lblRecentLog.Font = New Font("MS PGothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblRecentLog.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
+        lblRecentLog.Location = New Point(1, 126)
+        lblRecentLog.MaximumSize = New Size(200, 0)
+        lblRecentLog.Name = "lblRecentLog"
+        lblRecentLog.Size = New Size(200, 93)
+        lblRecentLog.TabIndex = 4
+        lblRecentLog.Text = "Log note"
         ' 
         ' Form1
         ' 
@@ -169,8 +199,10 @@ Partial Class Form1
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Black
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
-        BackgroundImageLayout = ImageLayout.Stretch
+        BackgroundImageLayout = ImageLayout.None
         ClientSize = New Size(217, 265)
+        Controls.Add(FlowLayoutPanel1)
+        Controls.Add(Label1)
         Controls.Add(lblHide)
         Controls.Add(lblRecentDateTime)
         Controls.Add(Button2)
@@ -198,11 +230,13 @@ Partial Class Form1
     Friend WithEvents timer As Timer
     Friend WithEvents notifyIcon As NotifyIcon
     Friend WithEvents lblDate As Label
-    Friend WithEvents lblRecentLog As Label
     Friend WithEvents lblRecentDateTime As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents lblHide As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents lblRecentLog As Label
 
 End Class

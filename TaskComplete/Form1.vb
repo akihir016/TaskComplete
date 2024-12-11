@@ -4,7 +4,44 @@ Public Class Form1
 
     Private WithEvents notifyIcon1 As New NotifyIcon() ' Declare and instantiate NotifyIcon
     Private logFolderPath As String = Path.Combine(Application.StartupPath, "DiaryLogs")
+    Private isDragging As Boolean = False
+    Private startPoint As Point
 
+
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        FlowLayoutPanel1.FlowDirection = FlowDirection.TopDown
+        lblRecentLog.Margin = New Padding(0, 0, 0, 0) ' 10 is the bottom margin
+        FlowLayoutPanel1.Controls.Add(lblRecentLog)
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+
+    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        If e.Button = MouseButtons.Left Then
+            isDragging = True
+            startPoint = New Point(e.X, e.Y)
+        End If
+
+        If e.Button = MouseButtons.Right Then
+            ContextMenu.Show(Me, e.Location) ' Show the context menu
+        End If
+    End Sub
+
+    Private Sub Form1_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
+        If isDragging Then
+            Dim p As Point = PointToScreen(e.Location)
+            Location = New Point(p.X - startPoint.X, p.Y - startPoint.Y)
+        End If
+    End Sub
+
+    Private Sub Form1_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
+        isDragging = False
+    End Sub
     Private Sub LoadEntries()
         Dim logFilePath As String = Path.Combine(logFolderPath, "daily_log.txt")
         If File.Exists(logFilePath) Then
@@ -38,7 +75,6 @@ Public Class Form1
         ' Set the height of the label based on the measured size
         label.Height = textSize.Height
     End Sub
-
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set the form to start at the upper-right corner of the primary screen
@@ -78,16 +114,8 @@ Public Class Form1
     Private Sub UpdateClock()
         lblClock.Text = DateTime.Now.ToString("hh:mm:ss tt") ' Format the time
     End Sub
-
     Private Sub UpdateDate()
         lblDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy") ' Format the date
-    End Sub
-
-    ' Handle the MouseDown event to show context menu
-    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
-        If e.Button = MouseButtons.Right Then
-            ContextMenu.Show(Me, e.Location) ' Show the context menu
-        End If
     End Sub
 
     ' Handle the Open menu item click
@@ -129,16 +157,19 @@ Public Class Form1
             form2Instance.BringToFront()
         End If
     End Sub
-
-    Private Sub lblRecentDateTime_Click(sender As Object, e As EventArgs) Handles lblRecentDateTime.Click
-
-    End Sub
-
     Private Sub lblHide_Click(sender As Object, e As EventArgs) Handles lblHide.Click
-        Me.Hide()
+        Hide()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Form3.Show()
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+
     End Sub
 End Class

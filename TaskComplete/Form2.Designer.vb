@@ -23,35 +23,24 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Label1 = New Label()
         txtActivity = New TextBox()
         btnSave = New Button()
         btnExport = New Button()
         Button1 = New Button()
         SuspendLayout()
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(12, 22)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(86, 19)
-        Label1.TabIndex = 1
-        Label1.Text = "Log Details"
-        ' 
         ' txtActivity
         ' 
+        txtActivity.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
         txtActivity.BorderStyle = BorderStyle.FixedSingle
-        txtActivity.Location = New Point(33, 47)
+        txtActivity.Location = New Point(17, 22)
         txtActivity.Name = "txtActivity"
-        txtActivity.Size = New Size(346, 22)
+        txtActivity.Size = New Size(367, 22)
         txtActivity.TabIndex = 2
         ' 
         ' btnSave
         ' 
-        btnSave.Location = New Point(12, 105)
+        btnSave.Location = New Point(17, 59)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 23)
         btnSave.TabIndex = 3
@@ -60,7 +49,7 @@ Partial Class Form2
         ' 
         ' btnExport
         ' 
-        btnExport.Location = New Point(304, 105)
+        btnExport.Location = New Point(309, 59)
         btnExport.Name = "btnExport"
         btnExport.Size = New Size(75, 23)
         btnExport.TabIndex = 4
@@ -69,7 +58,7 @@ Partial Class Form2
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(93, 105)
+        Button1.Location = New Point(93, 59)
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 23)
         Button1.TabIndex = 6
@@ -81,29 +70,30 @@ Partial Class Form2
         AcceptButton = btnSave
         AllowDrop = True
         AutoScaleMode = AutoScaleMode.None
-        BackColor = SystemColors.Control
+        BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
         CancelButton = Button1
-        ClientSize = New Size(400, 150)
+        ClientSize = New Size(406, 97)
         ControlBox = False
         Controls.Add(Button1)
         Controls.Add(btnExport)
         Controls.Add(btnSave)
         Controls.Add(txtActivity)
-        Controls.Add(Label1)
+        DoubleBuffered = True
         Font = New Font("Cambria", 9F)
-        ForeColor = SystemColors.ControlText
-        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        ForeColor = Color.Black
+        FormBorderStyle = FormBorderStyle.FixedSingle
         HelpButton = True
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         IsMdiContainer = True
         Name = "Form2"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Activity Log 9000"
+        Text = " Log Details"
+        TransparencyKey = Color.Transparent
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents txtActivity As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents btnExport As Button

@@ -30,15 +30,16 @@ Partial Class Form3
         ' 
         ' ListView1
         ' 
-        ListView1.Location = New Point(4, 5)
+        ListView1.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
+        ListView1.Location = New Point(-2, 63)
         ListView1.Name = "ListView1"
-        ListView1.Size = New Size(513, 526)
+        ListView1.Size = New Size(428, 414)
         ListView1.TabIndex = 0
         ListView1.UseCompatibleStateImageBehavior = False
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(433, 537)
+        Button1.Location = New Point(342, 483)
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 23)
         Button1.TabIndex = 1
@@ -47,7 +48,7 @@ Partial Class Form3
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(352, 537)
+        Button2.Location = New Point(261, 483)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 23)
         Button2.TabIndex = 2
@@ -59,12 +60,15 @@ Partial Class Form3
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         AutoScroll = True
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Center
         CancelButton = Button2
-        ClientSize = New Size(521, 563)
+        ClientSize = New Size(417, 530)
         ControlBox = False
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(ListView1)
+        DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form3"

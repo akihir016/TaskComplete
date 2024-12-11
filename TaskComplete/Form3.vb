@@ -2,6 +2,26 @@
 
 Public Class Form3
     Private logFolderPath As String = Path.Combine(Application.StartupPath, "DiaryLogs")
+    Private isDragging As Boolean = False
+    Private startPoint As Point
+
+    Private Sub Form3_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        If e.Button = MouseButtons.Left Then
+            isDragging = True
+            startPoint = New Point(e.X, e.Y)
+        End If
+    End Sub
+
+    Private Sub Form3_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
+        If isDragging Then
+            Dim p As Point = PointToScreen(e.Location)
+            Location = New Point(p.X - startPoint.X, p.Y - startPoint.Y)
+        End If
+    End Sub
+
+    Private Sub Form3_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
+        isDragging = False
+    End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set up the ListView
