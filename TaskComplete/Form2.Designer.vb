@@ -84,9 +84,7 @@ Partial Class Form2
         Font = New Font("Cambria", 9F)
         ForeColor = Color.Black
         FormBorderStyle = FormBorderStyle.FixedSingle
-        HelpButton = True
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        IsMdiContainer = True
         Name = "Form2"
         StartPosition = FormStartPosition.CenterScreen
         Text = " Log Details"

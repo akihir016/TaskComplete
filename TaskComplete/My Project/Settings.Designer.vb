@@ -77,6 +77,30 @@ Namespace My
                 Me("Form2LocationY") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property Form3LocationX() As Integer
+            Get
+                Return CType(Me("Form3LocationX"),Integer)
+            End Get
+            Set
+                Me("Form3LocationX") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property Form3LocationY() As Integer
+            Get
+                Return CType(Me("Form3LocationY"),Integer)
+            End Get
+            Set
+                Me("Form3LocationY") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

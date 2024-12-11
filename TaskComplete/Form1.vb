@@ -6,6 +6,7 @@ Public Class Form1
     Private logFolderPath As String = Path.Combine(Application.StartupPath, "DiaryLogs")
     Private isDragging As Boolean = False
     Private startPoint As Point
+    Private currentMonth As Integer
 
 
     Public Sub New()
@@ -20,7 +21,6 @@ Public Class Form1
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-
     Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
         If e.Button = MouseButtons.Left Then
             isDragging = True
@@ -90,6 +90,10 @@ Public Class Form1
         ' Make the form stay on top of other windows
         Me.TopMost = True
 
+
+        ' Initialize current Month
+        currentMonth = DateTime.Now.Month
+
         ' Set up NotifyIcon
         notifyIcon1.Icon = My.Resources.Resource1.TCicon ' Use the icon from Resources.resx
         notifyIcon1.Visible = True
@@ -103,12 +107,33 @@ Public Class Form1
         LoadEntries()
         UpdateClock()
         UpdateDate()
+
+    End Sub
+
+    Public Sub ToggleTopMost()
+        Me.TopMost = Not Me.TopMost
+    End Sub
+
+    Public Sub SetTopMost(topMost As Boolean)
+        Me.TopMost = topMost
     End Sub
 
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         UpdateClock() ' Update the clock every second
         UpdateDate() ' Update the date every tick (but it will show the same date)
         LoadEntries()
+
+        Dim newMonth As Integer = DateTime.Now.Month
+        If newMonth <> currentMonth Then
+            currentMonth = newMonth
+            ShowMonthChangeNotification()
+        End If
+    End Sub
+    Private Sub ShowMonthChangeNotification()
+        notifyIcon1.BalloonTipTitle = "Month Change Notification"
+        notifyIcon1.BalloonTipText = "The month has changed! Dont forget to clear and export your logs."
+        notifyIcon1.BalloonTipIcon = ToolTipIcon.Info
+        notifyIcon1.ShowBalloonTip(3000) ' Show for 3 seconds
     End Sub
 
     Private Sub UpdateClock()
@@ -171,5 +196,9 @@ Public Class Form1
 
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        Form4.Show()
     End Sub
 End Class

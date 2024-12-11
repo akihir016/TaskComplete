@@ -4,35 +4,60 @@ Public Class Form3
     Private logFolderPath As String = Path.Combine(Application.StartupPath, "DiaryLogs")
     Private isDragging As Boolean = False
     Private startPoint As Point
-
+    Private Shared instance As Form3 = Nothing
     Private Sub Form3_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
         If e.Button = MouseButtons.Left Then
             isDragging = True
             startPoint = New Point(e.X, e.Y)
         End If
     End Sub
-
     Private Sub Form3_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
         If isDragging Then
             Dim p As Point = PointToScreen(e.Location)
             Location = New Point(p.X - startPoint.X, p.Y - startPoint.Y)
         End If
     End Sub
-
     Private Sub Form3_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
         isDragging = False
     End Sub
 
+
+    Public Shared Sub ShowForm()
+        If instance Is Nothing OrElse instance.IsDisposed Then
+            instance = New Form3()
+            instance.Show()
+        Else
+            instance.BringToFront()
+        End If
+    End Sub
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Check if the log folder exists; if not, create it
+        If Not Directory.Exists(logFolderPath) Then
+            Directory.CreateDirectory(logFolderPath)
+        End If
+
+        ' Restore the last position of Form2
+        Dim lastX As Integer = My.Settings.Form3LocationX
+        Dim lastY As Integer = My.Settings.Form3LocationY
+
+        ' Set the location only if the values are valid
+        If lastX >= 0 AndAlso lastY >= 0 Then
+            Me.Location = New Point(lastX, lastY)
+        End If
         ' Set up the ListView
         ListView1.View = View.Details
-        ListView1.Columns.Add("Date", 100)
-        ListView1.Columns.Add("Entry", 300)
+        ListView1.Columns.Add("Date", 85)
+        ListView1.Columns.Add("Entry", 325)
 
         ' Load the entries for the current month
         LoadEntriesForCurrentMonth()
     End Sub
-
+    Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Save the current position of Form2
+        My.Settings.Form3LocationX = Me.Location.X
+        My.Settings.Form3LocationY = Me.Location.Y
+        My.Settings.Save() ' Save the settings
+    End Sub
     Private Sub LoadEntriesForCurrentMonth()
         Dim currentMonth As Integer = DateTime.Now.Month
         Dim currentYear As Integer = DateTime.Now.Year
@@ -83,7 +108,7 @@ Public Class Form3
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -106,6 +131,23 @@ Public Class Form3
             End Using
         Else
             MessageBox.Show("No log entries found to export.")
+        End If
+    End Sub
+    Private Sub ClearLog()
+        Dim logFilePath As String = Path.Combine(logFolderPath, "daily_log.txt")
+        If File.Exists(logFilePath) Then
+            Try
+                File.Delete(logFilePath)
+            Catch ex As IOException
+                MessageBox.Show("Error clearing log file: " & ex.Message)
+            End Try
+        End If
+    End Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If MessageBox.Show("Are you sure you want to clear the log file?", "Clear Log File", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+            ClearLog()
+            MessageBox.Show("Log file has been cleared.")
+            Me.Close()
         End If
     End Sub
 End Class

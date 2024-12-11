@@ -200,7 +200,7 @@ Partial Class Form1
         BackColor = Color.Black
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.None
-        ClientSize = New Size(217, 265)
+        ClientSize = New Size(217, 261)
         Controls.Add(FlowLayoutPanel1)
         Controls.Add(Label1)
         Controls.Add(lblHide)
@@ -216,7 +216,7 @@ Partial Class Form1
         FormBorderStyle = FormBorderStyle.None
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
-        Text = "Form1"
+        Text = "Task Complete"
         ContextMenu.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()

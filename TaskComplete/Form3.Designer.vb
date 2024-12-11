@@ -26,6 +26,7 @@ Partial Class Form3
         ListView1 = New ListView()
         Button1 = New Button()
         Button2 = New Button()
+        Button3 = New Button()
         SuspendLayout()
         ' 
         ' ListView1
@@ -55,6 +56,15 @@ Partial Class Form3
         Button2.Text = "Close"
         Button2.UseVisualStyleBackColor = True
         ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(339, 34)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(75, 23)
+        Button3.TabIndex = 3
+        Button3.Text = "Clear Logs"
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -65,6 +75,7 @@ Partial Class Form3
         CancelButton = Button2
         ClientSize = New Size(417, 530)
         ControlBox = False
+        Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(ListView1)
@@ -80,4 +91,5 @@ Partial Class Form3
     Friend WithEvents ListView1 As ListView
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class
