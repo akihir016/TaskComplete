@@ -40,6 +40,7 @@ Partial Class Form1
         Label1 = New Label()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         lblRecentLog = New Label()
+        btnRecord = New Button()
         ContextMenu.SuspendLayout()
         SuspendLayout()
         ' 
@@ -154,7 +155,7 @@ Partial Class Form1
         lblHide.BackColor = Color.Transparent
         lblHide.Font = New Font("Bauhaus 93", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblHide.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
-        lblHide.Location = New Point(188, 8)
+        lblHide.Location = New Point(181, 8)
         lblHide.Name = "lblHide"
         lblHide.Size = New Size(15, 21)
         lblHide.TabIndex = 9
@@ -166,7 +167,7 @@ Partial Class Form1
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Bauhaus 93", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
-        Label1.Location = New Point(202, 9)
+        Label1.Location = New Point(195, 9)
         Label1.Name = "Label1"
         Label1.Size = New Size(16, 16)
         Label1.TabIndex = 10
@@ -193,6 +194,15 @@ Partial Class Form1
         lblRecentLog.TabIndex = 4
         lblRecentLog.Text = "Log note"
         ' 
+        ' btnRecord
+        ' 
+        btnRecord.Location = New Point(89, 225)
+        btnRecord.Name = "btnRecord"
+        btnRecord.Size = New Size(35, 31)
+        btnRecord.TabIndex = 12
+        btnRecord.Text = "R"
+        btnRecord.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 17F)
@@ -201,6 +211,7 @@ Partial Class Form1
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.None
         ClientSize = New Size(217, 261)
+        Controls.Add(btnRecord)
         Controls.Add(FlowLayoutPanel1)
         Controls.Add(Label1)
         Controls.Add(lblHide)
@@ -238,5 +249,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents lblRecentLog As Label
+    Friend WithEvents btnRecord As Button
 
 End Class

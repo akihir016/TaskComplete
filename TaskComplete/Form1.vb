@@ -7,6 +7,7 @@ Public Class Form1
     Private isDragging As Boolean = False
     Private startPoint As Point
     Private currentMonth As Integer
+    Private audioRecorder As AudioRecorder
 
 
     Public Sub New()
@@ -77,6 +78,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         ' Set the form to start at the upper-right corner of the primary screen
         Me.StartPosition = FormStartPosition.Manual ' Allow manual positioning
 
@@ -103,11 +106,12 @@ Public Class Form1
         timer.Interval = 1000 ' Update every second
         timer.Start()
 
-        ' Load entries to display recent logs
+        ' Load displays on form 1
         LoadEntries()
         UpdateClock()
         UpdateDate()
 
+        audioRecorder = New AudioRecorder() 'initialize Audio Recorder
     End Sub
 
     Public Sub ToggleTopMost()
@@ -182,6 +186,17 @@ Public Class Form1
             form2Instance.BringToFront()
         End If
     End Sub
+    Private Sub btnRecord_Click(sender As Object, e As EventArgs) Handles btnRecord.Click
+        If AudioRecorder IsNot Nothing Then
+            If btnRecord.Text = "R" Then
+                audioRecorder.StartRecording()
+                btnRecord.Text = "S"
+            Else
+                audioRecorder.StopRecording()
+                btnRecord.Text = "R"
+            End If
+        End If
+    End Sub
     Private Sub lblHide_Click(sender As Object, e As EventArgs) Handles lblHide.Click
         Hide()
     End Sub
@@ -201,4 +216,5 @@ Public Class Form1
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         Form4.Show()
     End Sub
+
 End Class
