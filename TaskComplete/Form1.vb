@@ -102,6 +102,9 @@ Public Class Form1
         notifyIcon1.Visible = True
         notifyIcon1.ContextMenuStrip = ContextMenu ' Use the correct context menu name
 
+        ' double click handler
+        AddHandler notifyIcon1.DoubleClick, AddressOf NotifyIcon1_DoubleClick
+
         ' Set up the Timer
         timer.Interval = 1000 ' Update every second
         timer.Start()
@@ -138,6 +141,12 @@ Public Class Form1
         notifyIcon1.BalloonTipText = "The month has changed! Dont forget to clear and export your logs."
         notifyIcon1.BalloonTipIcon = ToolTipIcon.Info
         notifyIcon1.ShowBalloonTip(3000) ' Show for 3 seconds
+    End Sub
+    Private Sub NotifyIcon1_DoubleClick(sender As Object, e As EventArgs)
+        ' Show the form when the NotifyIcon is double-clicked
+        Me.Show()
+        Me.WindowState = FormWindowState.Normal
+        BringToFront()
     End Sub
 
     Private Sub UpdateClock()
