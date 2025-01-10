@@ -226,4 +226,7 @@ Public Class Form1
         Form4.Show()
     End Sub
 
+    Private Sub NewLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewLogToolStripMenuItem.Click
+        Form2.Show()
+    End Sub
 End Class

@@ -60,7 +60,7 @@ Public Class Form2
 
     Private Sub LogEntry(activity As String)
         Dim dateStr As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ' Include time
-        Dim entry As String = $"Date: {dateStr} - Activity: {activity}"
+        Dim entry As String = $"{dateStr} - Activity: {activity}"
 
         ' Append the entry to the log file in the log folder
         Using writer As New StreamWriter(Path.Combine(logFolderPath, "daily_log.txt"), True)

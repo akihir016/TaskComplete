@@ -22,43 +22,75 @@ Partial Class Form4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        CheckBox1 = New CheckBox()
-        Button1 = New Button()
+        Button2 = New Button()
+        DateTimePicker1 = New DateTimePicker()
+        ButtonShowLogs = New Button()
+        ListBoxLogs = New ListBox()
+        lblConnectionStatus = New Label()
         SuspendLayout()
         ' 
-        ' CheckBox1
+        ' Button2
         ' 
-        CheckBox1.AutoSize = True
-        CheckBox1.Location = New Point(12, 12)
-        CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(102, 19)
-        CheckBox1.TabIndex = 0
-        CheckBox1.Text = "Always on Top"
-        CheckBox1.UseVisualStyleBackColor = True
+        Button2.Location = New Point(218, 231)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 23)
+        Button2.TabIndex = 1
+        Button2.Text = "Close"
+        Button2.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' DateTimePicker1
         ' 
-        Button1.Location = New Point(39, 142)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 23)
-        Button1.TabIndex = 1
-        Button1.Text = "Button1"
-        Button1.UseVisualStyleBackColor = True
+        DateTimePicker1.Location = New Point(12, 12)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(200, 23)
+        DateTimePicker1.TabIndex = 2
+        ' 
+        ' ButtonShowLogs
+        ' 
+        ButtonShowLogs.Location = New Point(12, 231)
+        ButtonShowLogs.Name = "ButtonShowLogs"
+        ButtonShowLogs.Size = New Size(75, 23)
+        ButtonShowLogs.TabIndex = 3
+        ButtonShowLogs.Text = "Retrieve"
+        ButtonShowLogs.UseVisualStyleBackColor = True
+        ' 
+        ' ListBoxLogs
+        ' 
+        ListBoxLogs.FormattingEnabled = True
+        ListBoxLogs.ItemHeight = 15
+        ListBoxLogs.Location = New Point(12, 41)
+        ListBoxLogs.Name = "ListBoxLogs"
+        ListBoxLogs.Size = New Size(281, 169)
+        ListBoxLogs.TabIndex = 4
+        ' 
+        ' lblConnectionStatus
+        ' 
+        lblConnectionStatus.AutoSize = True
+        lblConnectionStatus.Location = New Point(12, 213)
+        lblConnectionStatus.Name = "lblConnectionStatus"
+        lblConnectionStatus.Size = New Size(114, 15)
+        lblConnectionStatus.TabIndex = 7
+        lblConnectionStatus.Text = "lblConnectionStatus"
         ' 
         ' Form4
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(120, 167)
+        ClientSize = New Size(305, 266)
         ControlBox = False
-        Controls.Add(Button1)
-        Controls.Add(CheckBox1)
+        Controls.Add(lblConnectionStatus)
+        Controls.Add(ListBoxLogs)
+        Controls.Add(ButtonShowLogs)
+        Controls.Add(DateTimePicker1)
+        Controls.Add(Button2)
         Name = "Form4"
-        Text = "Form4"
+        Text = "Log Retrieval"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents ButtonShowLogs As Button
+    Friend WithEvents ListBoxLogs As ListBox
+    Friend WithEvents lblConnectionStatus As Label
 End Class

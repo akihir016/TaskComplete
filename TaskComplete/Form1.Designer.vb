@@ -25,6 +25,7 @@ Partial Class Form1
         components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         ContextMenu = New ContextMenuStrip(components)
+        NewLogToolStripMenuItem = New ToolStripMenuItem()
         OpenToolStripMenuItem = New ToolStripMenuItem()
         SettingsToolStripMenuItem = New ToolStripMenuItem()
         ExitToolStripMenuItem = New ToolStripMenuItem()
@@ -47,26 +48,32 @@ Partial Class Form1
         ' ContextMenu
         ' 
         ContextMenu.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
-        ContextMenu.Items.AddRange(New ToolStripItem() {OpenToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
+        ContextMenu.Items.AddRange(New ToolStripItem() {NewLogToolStripMenuItem, OpenToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
         ContextMenu.Name = "OpenToolStripMenuItem"
-        ContextMenu.Size = New Size(117, 70)
+        ContextMenu.Size = New Size(185, 92)
+        ' 
+        ' NewLogToolStripMenuItem
+        ' 
+        NewLogToolStripMenuItem.Name = "NewLogToolStripMenuItem"
+        NewLogToolStripMenuItem.Size = New Size(184, 22)
+        NewLogToolStripMenuItem.Text = "New Log"
         ' 
         ' OpenToolStripMenuItem
         ' 
         OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        OpenToolStripMenuItem.Size = New Size(116, 22)
-        OpenToolStripMenuItem.Text = "Show"
+        OpenToolStripMenuItem.Size = New Size(184, 22)
+        OpenToolStripMenuItem.Text = "Show Task Complete"
         ' 
         ' SettingsToolStripMenuItem
         ' 
         SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        SettingsToolStripMenuItem.Size = New Size(116, 22)
-        SettingsToolStripMenuItem.Text = "Settings"
+        SettingsToolStripMenuItem.Size = New Size(184, 22)
+        SettingsToolStripMenuItem.Text = "Log Retrieval"
         ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        ExitToolStripMenuItem.Size = New Size(116, 22)
+        ExitToolStripMenuItem.Size = New Size(184, 22)
         ExitToolStripMenuItem.Text = "Exit"
         ' 
         ' lblClock
@@ -250,5 +257,6 @@ Partial Class Form1
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents lblRecentLog As Label
     Friend WithEvents btnRecord As Button
+    Friend WithEvents NewLogToolStripMenuItem As ToolStripMenuItem
 
 End Class
