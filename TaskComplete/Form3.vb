@@ -67,7 +67,6 @@ Public Class Form3
 
         ' Get all text files in the log folder
         Dim logFiles As String() = Directory.GetFiles(logFolderPath, "*.txt")
-        ' MessageBox.Show("Number of log files found: " & logFiles.Length)
 
         ' Group entries by day
         Dim dailyEntries As New Dictionary(Of DateTime, List(Of String))
@@ -76,8 +75,8 @@ Public Class Form3
             Dim entries As String() = File.ReadAllLines(logFile)
 
             For Each entry As String In entries
-                ' Split the entry to extract the date and activity
-                Dim datePart As String = entry.Substring(entry.IndexOf("Date: ") + 6, 19) ' Extract the date part
+                ' Update the extraction logic for the new format
+                Dim datePart As String = entry.Substring(0, 19) ' Extract the date part
                 Dim activityPart As String = entry.Substring(entry.IndexOf("Activity: ") + 10) ' Extract the activity part
 
                 Dim entryDate As DateTime
@@ -106,6 +105,7 @@ Public Class Form3
             MessageBox.Show("No entries found for the current month.")
         End If
     End Sub
+
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Close()
