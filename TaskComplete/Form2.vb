@@ -24,6 +24,17 @@ Public Class Form2
     Private Sub Form2_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
         isDragging = False
     End Sub
+    Public Sub ResetLocationAndCenter()
+        ' Reset the saved location to default values
+        My.Settings.Form2LocationX = -1
+        My.Settings.Form2LocationY = -1
+        My.Settings.Save()
+
+        ' Center the form
+        Me.StartPosition = FormStartPosition.CenterScreen
+        Me.Location = New Point((Screen.PrimaryScreen.Bounds.Width - Me.Width) / 2,
+                            (Screen.PrimaryScreen.Bounds.Height - Me.Height) / 2)
+    End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Check if the log folder exists; if not, create it

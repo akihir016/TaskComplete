@@ -196,7 +196,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub btnRecord_Click(sender As Object, e As EventArgs) Handles btnRecord.Click
-        If AudioRecorder IsNot Nothing Then
+        If audioRecorder IsNot Nothing Then
             If btnRecord.Text = "R" Then
                 audioRecorder.StartRecording()
                 btnRecord.Text = "S"
@@ -232,5 +232,15 @@ Public Class Form1
 
     Private Sub DTRDateGeneratorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DTRDateGeneratorToolStripMenuItem.Click
         Form5.Show()
+    End Sub
+
+    Private Sub ResetFormToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetFormToolStripMenuItem.Click
+        Dim form2 As Form2 = Application.OpenForms.OfType(Of Form2)().FirstOrDefault()
+
+        If form2 IsNot Nothing Then
+            form2.ResetLocationAndCenter()
+        Else
+            MessageBox.Show("Form2 is not open.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 End Class

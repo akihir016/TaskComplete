@@ -27,6 +27,7 @@ Partial Class Form1
         ContextMenu = New ContextMenuStrip(components)
         NewLogToolStripMenuItem = New ToolStripMenuItem()
         OpenToolStripMenuItem = New ToolStripMenuItem()
+        DTRDateGeneratorToolStripMenuItem = New ToolStripMenuItem()
         SettingsToolStripMenuItem = New ToolStripMenuItem()
         ExitToolStripMenuItem = New ToolStripMenuItem()
         lblClock = New Label()
@@ -42,39 +43,47 @@ Partial Class Form1
         FlowLayoutPanel1 = New FlowLayoutPanel()
         lblRecentLog = New Label()
         btnRecord = New Button()
-        DTRDateGeneratorToolStripMenuItem = New ToolStripMenuItem()
+        SettingToolStripMenuItem = New ToolStripMenuItem()
+        ResetFormToolStripMenuItem = New ToolStripMenuItem()
         ContextMenu.SuspendLayout()
         SuspendLayout()
         ' 
         ' ContextMenu
         ' 
         ContextMenu.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
-        ContextMenu.Items.AddRange(New ToolStripItem() {NewLogToolStripMenuItem, OpenToolStripMenuItem, DTRDateGeneratorToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
+        ContextMenu.ImageScalingSize = New Size(20, 20)
+        ContextMenu.Items.AddRange(New ToolStripItem() {NewLogToolStripMenuItem, OpenToolStripMenuItem, DTRDateGeneratorToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem, SettingToolStripMenuItem})
         ContextMenu.Name = "OpenToolStripMenuItem"
-        ContextMenu.Size = New Size(185, 136)
+        ContextMenu.Size = New Size(215, 176)
         ' 
         ' NewLogToolStripMenuItem
         ' 
         NewLogToolStripMenuItem.Name = "NewLogToolStripMenuItem"
-        NewLogToolStripMenuItem.Size = New Size(184, 22)
+        NewLogToolStripMenuItem.Size = New Size(214, 24)
         NewLogToolStripMenuItem.Text = "New Log"
         ' 
         ' OpenToolStripMenuItem
         ' 
         OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        OpenToolStripMenuItem.Size = New Size(184, 22)
+        OpenToolStripMenuItem.Size = New Size(214, 24)
         OpenToolStripMenuItem.Text = "Show Task Complete"
+        ' 
+        ' DTRDateGeneratorToolStripMenuItem
+        ' 
+        DTRDateGeneratorToolStripMenuItem.Name = "DTRDateGeneratorToolStripMenuItem"
+        DTRDateGeneratorToolStripMenuItem.Size = New Size(214, 24)
+        DTRDateGeneratorToolStripMenuItem.Text = "DTR Date Generator"
         ' 
         ' SettingsToolStripMenuItem
         ' 
         SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        SettingsToolStripMenuItem.Size = New Size(184, 22)
+        SettingsToolStripMenuItem.Size = New Size(214, 24)
         SettingsToolStripMenuItem.Text = "Log Retrieval"
         ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        ExitToolStripMenuItem.Size = New Size(184, 22)
+        ExitToolStripMenuItem.Size = New Size(214, 24)
         ExitToolStripMenuItem.Text = "Exit"
         ' 
         ' lblClock
@@ -85,7 +94,7 @@ Partial Class Form1
         lblClock.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         lblClock.Location = New Point(42, 23)
         lblClock.Name = "lblClock"
-        lblClock.Size = New Size(61, 25)
+        lblClock.Size = New Size(77, 31)
         lblClock.TabIndex = 1
         lblClock.Text = "12:00"
         ' 
@@ -105,7 +114,7 @@ Partial Class Form1
         lblDate.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         lblDate.Location = New Point(4, 56)
         lblDate.Name = "lblDate"
-        lblDate.Size = New Size(70, 17)
+        lblDate.Size = New Size(90, 21)
         lblDate.TabIndex = 3
         lblDate.Text = "12/05/2024"
         lblDate.TextAlign = ContentAlignment.TopCenter
@@ -118,7 +127,7 @@ Partial Class Form1
         lblRecentDateTime.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         lblRecentDateTime.Location = New Point(2, 99)
         lblRecentDateTime.Name = "lblRecentDateTime"
-        lblRecentDateTime.Size = New Size(167, 15)
+        lblRecentDateTime.Size = New Size(209, 19)
         lblRecentDateTime.TabIndex = 5
         lblRecentDateTime.Text = "time and date of log"
         ' 
@@ -130,7 +139,7 @@ Partial Class Form1
         Label4.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         Label4.Location = New Point(2, 83)
         Label4.Name = "Label4"
-        Label4.Size = New Size(81, 17)
+        Label4.Size = New Size(103, 21)
         Label4.TabIndex = 6
         Label4.Text = "Latest Log: "
         ' 
@@ -165,7 +174,7 @@ Partial Class Form1
         lblHide.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         lblHide.Location = New Point(181, 8)
         lblHide.Name = "lblHide"
-        lblHide.Size = New Size(15, 21)
+        lblHide.Size = New Size(18, 28)
         lblHide.TabIndex = 9
         lblHide.Text = "-"
         ' 
@@ -177,7 +186,7 @@ Partial Class Form1
         Label1.ForeColor = Color.FromArgb(CByte(31), CByte(39), CByte(27))
         Label1.Location = New Point(195, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(16, 16)
+        Label1.Size = New Size(21, 21)
         Label1.TabIndex = 10
         Label1.Text = "x"
         ' 
@@ -211,15 +220,22 @@ Partial Class Form1
         btnRecord.Text = "R"
         btnRecord.UseVisualStyleBackColor = True
         ' 
-        ' DTRDateGeneratorToolStripMenuItem
+        ' SettingToolStripMenuItem
         ' 
-        DTRDateGeneratorToolStripMenuItem.Name = "DTRDateGeneratorToolStripMenuItem"
-        DTRDateGeneratorToolStripMenuItem.Size = New Size(184, 22)
-        DTRDateGeneratorToolStripMenuItem.Text = "DTR Date Generator"
+        SettingToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ResetFormToolStripMenuItem})
+        SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        SettingToolStripMenuItem.Size = New Size(214, 24)
+        SettingToolStripMenuItem.Text = "Setting"
+        ' 
+        ' ResetFormToolStripMenuItem
+        ' 
+        ResetFormToolStripMenuItem.Name = "ResetFormToolStripMenuItem"
+        ResetFormToolStripMenuItem.Size = New Size(224, 26)
+        ResetFormToolStripMenuItem.Text = "Reset Form"
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 17F)
+        AutoScaleDimensions = New SizeF(11F, 22F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Black
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
@@ -266,5 +282,7 @@ Partial Class Form1
     Friend WithEvents btnRecord As Button
     Friend WithEvents NewLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DTRDateGeneratorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResetFormToolStripMenuItem As ToolStripMenuItem
 
 End Class
