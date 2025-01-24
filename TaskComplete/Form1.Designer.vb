@@ -42,15 +42,16 @@ Partial Class Form1
         FlowLayoutPanel1 = New FlowLayoutPanel()
         lblRecentLog = New Label()
         btnRecord = New Button()
+        DTRDateGeneratorToolStripMenuItem = New ToolStripMenuItem()
         ContextMenu.SuspendLayout()
         SuspendLayout()
         ' 
         ' ContextMenu
         ' 
         ContextMenu.BackColor = Color.FromArgb(CByte(221), CByte(224), CByte(189))
-        ContextMenu.Items.AddRange(New ToolStripItem() {NewLogToolStripMenuItem, OpenToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
+        ContextMenu.Items.AddRange(New ToolStripItem() {NewLogToolStripMenuItem, OpenToolStripMenuItem, DTRDateGeneratorToolStripMenuItem, SettingsToolStripMenuItem, ExitToolStripMenuItem})
         ContextMenu.Name = "OpenToolStripMenuItem"
-        ContextMenu.Size = New Size(185, 92)
+        ContextMenu.Size = New Size(185, 136)
         ' 
         ' NewLogToolStripMenuItem
         ' 
@@ -210,6 +211,12 @@ Partial Class Form1
         btnRecord.Text = "R"
         btnRecord.UseVisualStyleBackColor = True
         ' 
+        ' DTRDateGeneratorToolStripMenuItem
+        ' 
+        DTRDateGeneratorToolStripMenuItem.Name = "DTRDateGeneratorToolStripMenuItem"
+        DTRDateGeneratorToolStripMenuItem.Size = New Size(184, 22)
+        DTRDateGeneratorToolStripMenuItem.Text = "DTR Date Generator"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 17F)
@@ -258,5 +265,6 @@ Partial Class Form1
     Friend WithEvents lblRecentLog As Label
     Friend WithEvents btnRecord As Button
     Friend WithEvents NewLogToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DTRDateGeneratorToolStripMenuItem As ToolStripMenuItem
 
 End Class

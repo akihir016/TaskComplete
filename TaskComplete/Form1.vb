@@ -229,4 +229,8 @@ Public Class Form1
     Private Sub NewLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewLogToolStripMenuItem.Click
         Form2.Show()
     End Sub
+
+    Private Sub DTRDateGeneratorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DTRDateGeneratorToolStripMenuItem.Click
+        Form5.Show()
+    End Sub
 End Class
